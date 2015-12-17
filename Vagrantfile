@@ -16,6 +16,12 @@ Vagrant.configure(2) do |config|
 
   config.vm.network "forwarded_port", guest: 5000, host: 5000
 
+config.vm.provision "shell", inline: "cd /vagrant/chef-repo; make instal-chef-client"
+config.vm.provision "chef_solo" do |chef|
+   chef.cookbooks_path = ["chef-repo/site-cookbooks", "chef-repo/cookbooks"]
+   chef.add_recipe "factorialapp"
+end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
