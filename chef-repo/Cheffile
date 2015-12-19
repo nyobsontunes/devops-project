@@ -7,3 +7,5 @@ cookbook 'swap'
 cookbook 'swap_tuning'
 cookbook 'chef-client'
 cookbook 'chef-server'
+cookbook 'jenkins'
+cookbook 'postfix' # to send email with Jenkins reports
